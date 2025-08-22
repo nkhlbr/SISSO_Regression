@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --account=def-kleinke
+#SBATCH --job-name=nkhlbr_sisso_TCmin
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=32
+#SBATCH --mem=0   # memory in Mb for all nodes
+#SBATCH --time=00-22:00  # time (DD-HH:MM)
+
+cd ${SLURM_SUBMIT_DIR}  
+
+module load StdEnv/2020
+module load python/3.10
+module load intelmpi/2019.7.217
+
+srun sisso
+ 
+
