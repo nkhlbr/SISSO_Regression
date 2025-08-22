@@ -1,0 +1,18 @@
+#!/bin/bash
+#SBATCH --account=def-kleinke
+#SBATCH --job-name=nkhlbr_sisso_test1
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=32
+#SBATCH --mem=0   # memory in Mb for all nodes
+#SBATCH --time=00-08:00         # time (DD-HH:MM)
+
+cd ${SLURM_SUBMIT_DIR}  
+
+# we set OMP_NUM_THREADS to the number of available cores
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+
+date
+
+module load intelmpi/2019.7.217
+
+srun /home/nkhlbr/bin/sisso
